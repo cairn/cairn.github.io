@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Plan 9 from Bell Labs Aesthetic - Acme & Rio Window Manager Design System
+   Plan 9 & Retro Terminal Aesthetic Design System
    Zero JavaScript - Pure HTML5 & CSS3
    ========================================================================== */
 
@@ -14,7 +14,6 @@
   --acme-button-bg: #e2f0f0;  /* Button surface */
   --acme-button-hover: #c4ecec;
   --acme-green: #d0f0c0;      /* Success / Active state */
-  --acme-red: #f0d0d0;        /* Warning / Error state */
   --acme-blue: #88cccc;       /* Accent blue */
   
   /* Rio Desktop Background */
@@ -22,7 +21,7 @@
   --desktop-grid: rgba(255, 255, 255, 0.05);
 
   /* Typography */
-  --font-mono: 'Courier New', Courier, Consolas, 'Lucida Console', Monaco, monospace;
+  --font-mono: 'Courier New', 'Courier', 'Consolas', 'Lucida Console', 'Monaco', monospace;
 }
 
 /* Base Reset & Layout */
@@ -32,9 +31,16 @@
   padding: 0;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 html {
-  scroll-behavior: smooth;
   background-color: var(--desktop-bg);
+  scrollbar-width: thin;
+  scrollbar-color: #666666 #999999;
 }
 
 body {
@@ -71,6 +77,7 @@ body {
   background: #444444;
 }
 
+/* Main Container */
 .container {
   max-width: 1080px;
   margin: 0 auto;
@@ -100,12 +107,6 @@ body {
   gap: 10px;
 }
 
-.topbar-badge {
-  background: var(--acme-tag-focus);
-  padding: 2px 6px;
-  border: 1px solid var(--acme-border);
-}
-
 .topbar-nav {
   display: flex;
   gap: 6px;
@@ -121,8 +122,10 @@ body {
   transition: background 0.1s ease;
 }
 
-.topbar-nav a:hover {
+.topbar-nav a:hover,
+.topbar-nav a:focus-visible {
   background: var(--acme-tag-focus);
+  outline: 2px solid var(--acme-border);
 }
 
 /* Rio Window Container */
@@ -135,6 +138,7 @@ body {
   overflow: hidden;
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
   position: relative;
+  scroll-margin-top: 50px;
 }
 
 .rio-window:target {
@@ -146,7 +150,7 @@ body {
   background: var(--acme-tag-focus);
 }
 
-/* Tagbar (Acme Header) */
+/* Tagbar Header */
 .window-tagbar {
   background: var(--acme-tag-bg);
   border-bottom: 1px solid var(--acme-border);
@@ -165,36 +169,13 @@ body {
   color: var(--acme-text);
 }
 
-.tagbar-actions {
-  color: var(--acme-subtext);
-  display: flex;
-  gap: 6px;
-}
-
-.tagbar-action-btn {
-  cursor: pointer;
-  padding: 2px 6px;
-  border: 1px solid var(--acme-border);
-  background: var(--acme-button-bg);
-  color: var(--acme-text);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  display: inline-block;
-  user-select: none;
-  transition: background 0.1s ease;
-}
-
-.tagbar-action-btn:hover {
-  background: var(--acme-button-hover);
-}
-
 /* Window Body */
 .window-body {
   padding: 20px;
 }
 
 /* Typography Elements */
-h1, h2, h3, h4 {
+h1, h2, h3 {
   font-family: var(--font-mono);
   font-weight: bold;
   color: var(--acme-text);
@@ -203,8 +184,7 @@ h1, h2, h3, h4 {
 
 h1 { font-size: 22px; }
 h2 { font-size: 18px; border-bottom: 1px dashed var(--acme-border); padding-bottom: 4px; }
-h3 { font-size: 16px; }
-h4 { font-size: 14px; }
+h3 { font-size: 15px; }
 
 p {
   margin-bottom: 12px;
@@ -215,8 +195,10 @@ a {
   text-decoration: underline;
 }
 
-a:hover {
+a:hover,
+a:focus-visible {
   background-color: var(--acme-tag-focus);
+  outline: 2px solid var(--acme-border);
 }
 
 /* Cyberpunk Neon Banner Header */
@@ -262,41 +244,6 @@ a:hover {
   display: block;
 }
 
-.pixel-logo-caption {
-  font-size: 11px;
-  background: var(--acme-tag-bg);
-  border-top: 1px solid var(--acme-border);
-  padding: 4px;
-  margin-top: 4px;
-}
-
-/* System Info Specs Table */
-.spec-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  margin-top: 16px;
-}
-
-.spec-box {
-  background: var(--acme-tag-bg);
-  border: 1px solid var(--acme-border);
-  padding: 8px 12px;
-  font-size: 13px;
-}
-
-.spec-key {
-  font-weight: bold;
-  color: var(--acme-subtext);
-  font-size: 11px;
-  text-transform: uppercase;
-}
-
-.spec-val {
-  font-weight: bold;
-  color: var(--acme-text);
-}
-
 /* Cairn Code Step Timeline Grid */
 .pipeline-grid {
   display: grid;
@@ -338,167 +285,18 @@ a:hover {
   background: var(--acme-tag-focus);
 }
 
-.step-meta {
-  background: #f4f4f4;
-  border-left: 3px solid var(--acme-border);
-  padding: 6px 8px;
-  font-size: 12px;
-  margin-top: 10px;
-}
-
-/* Details & Summary Collapsible Execution Log */
-.plan9-details {
-  border: 1px solid var(--acme-border);
-  margin-top: 16px;
-  background: #ffffff;
-}
-
-.plan9-summary {
-  background: var(--acme-tag-bg);
-  padding: 8px 12px;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-  border-bottom: 1px solid var(--acme-border);
-  outline: none;
-}
-
-.plan9-summary:hover {
-  background: var(--acme-tag-focus);
-}
-
-.details-content {
-  padding: 12px;
-  background: #1e1e1e;
-  color: #00ff41;
-  overflow-x: auto;
-  font-size: 12px;
-}
-
-/* Floriography Radio Views (Zero JS Pure CSS Switching) */
-.floriography-view-radio {
-  display: none;
-}
-
-#floriography-view-all:checked ~ .window-tagbar label[for="floriography-view-all"],
-#floriography-view-growth:checked ~ .window-tagbar label[for="floriography-view-growth"],
-#floriography-view-verse:checked ~ .window-tagbar label[for="floriography-view-verse"],
-#floriography-view-latin:checked ~ .window-tagbar label[for="floriography-view-latin"] {
-  background: var(--acme-tag-focus);
-  font-weight: bold;
-  border-color: var(--acme-border);
-}
-
-.botany-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.botany-card {
-  background: #ffffff;
-  border: 1px solid var(--acme-border);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.botany-latin {
-  font-style: italic;
-  color: #444444;
-  font-size: 13px;
-  margin-bottom: 4px;
-  transition: all 0.2s ease;
-}
-
-.botany-meaning {
-  background: var(--acme-tag-bg);
-  border: 1px solid var(--acme-border);
-  padding: 4px 8px;
-  font-weight: bold;
-  display: inline-block;
-  margin-bottom: 10px;
-  font-size: 12px;
-}
-
-.botany-quote {
-  border-left: 3px solid var(--acme-blue);
-  padding-left: 10px;
-  font-size: 13px;
-  color: #333333;
-  margin-top: 8px;
-  font-style: italic;
-  transition: all 0.2s ease;
-}
-
-.botany-author {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 11px;
-  color: #666666;
-  margin-top: 4px;
-  text-align: right;
-}
-
-.growth-params {
-  background: #1e1e1e;
-  color: #00ff41;
-  border: 1px solid var(--acme-border);
-  padding: 8px 10px;
-  font-size: 11px;
-  margin-top: 12px;
-  font-family: var(--font-mono);
-  transition: all 0.2s ease;
-}
-
-/* Floriography Dynamic Pure-CSS View Switching Effects */
-#floriography-view-growth:checked ~ .window-body .botany-quote,
-#floriography-view-growth:checked ~ .window-body .botany-latin {
-  opacity: 0.4;
-}
-
-#floriography-view-growth:checked ~ .window-body .growth-params {
-  border: 2px solid var(--acme-border);
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
-}
-
-#floriography-view-verse:checked ~ .window-body .botany-latin,
-#floriography-view-verse:checked ~ .window-body .growth-params {
-  opacity: 0.3;
-}
-
-#floriography-view-verse:checked ~ .window-body .botany-quote {
-  background: #ffffea;
-  border-left: 4px solid var(--acme-border);
-  padding: 10px;
-  font-size: 14px;
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-}
-
-#floriography-view-latin:checked ~ .window-body .botany-quote,
-#floriography-view-latin:checked ~ .window-body .growth-params {
-  opacity: 0.3;
-}
-
-#floriography-view-latin:checked ~ .window-body .botany-latin {
-  background: var(--acme-tag-focus);
-  padding: 4px 8px;
-  border: 1px solid var(--acme-border);
-  display: inline-block;
-  font-weight: bold;
-  color: #000000;
-}
-
-/* Projects Portal Filter & Grid (Zero JS Radio Hack) */
+/* Projects Portal Filter & Grid (Zero JS Radio Filter) */
 .projects-filter-wrapper {
   margin-top: 16px;
 }
 
 .filter-radio {
-  display: none;
+  position: absolute;
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .filter-labels {
@@ -525,10 +323,15 @@ a:hover {
   background: var(--acme-button-hover);
 }
 
+.filter-radio:focus-visible + .filter-btn,
+.filter-btn:focus-visible {
+  outline: 2px solid var(--acme-border);
+  background: var(--acme-tag-focus);
+}
+
 /* Radio Button Checked Highlight */
 #filter-all:checked ~ .filter-labels label[for="filter-all"],
 #filter-ai:checked ~ .filter-labels label[for="filter-ai"],
-#filter-systems:checked ~ .filter-labels label[for="filter-systems"],
 #filter-creative:checked ~ .filter-labels label[for="filter-creative"] {
   background: var(--acme-tag-focus);
   font-weight: bold;
@@ -574,10 +377,6 @@ a:hover {
   background: var(--acme-green);
 }
 
-.project-badge.private {
-  background: var(--acme-button-bg);
-}
-
 .project-tags {
   display: flex;
   gap: 4px;
@@ -601,7 +400,6 @@ a:hover {
 
 /* Filtering Logic via CSS Selectors */
 #filter-ai:checked ~ .projects-grid .project-card:not([data-category="ai"]),
-#filter-systems:checked ~ .projects-grid .project-card:not([data-category="systems"]),
 #filter-creative:checked ~ .projects-grid .project-card:not([data-category="creative"]) {
   display: none;
 }
@@ -640,19 +438,12 @@ a:hover {
   font-weight: bold;
   margin-top: 16px;
   font-size: 14px;
+  display: block;
 }
 
-/* Footer Log Bar */
+/* Footer Window */
 .footer-window {
   margin-top: 30px;
-}
-
-.footer-status-log {
-  background: #000000;
-  color: #00ff41;
-  padding: 8px 12px;
-  font-size: 12px;
-  border-bottom: 1px solid var(--acme-border);
 }
 
 .footer-nav {

@@ -1,22 +1,29 @@
-# Cairn Software — Corporate Hub
+# Cairn Software
 
-The official static website and repository catalog for **Cairn Software** (hosted live at [https://cairn.github.io](https://cairn.github.io)). Built using a lightweight, performant, and visual-first design approach.
+The [Cairn Software website](https://cairn.github.io): an independent software studio's project collection, agent workflow, and philosophy.
 
-## 🚀 Features
+## Design
 
-*   **Interactive Particle & Helix Background:** A responsive HTML5 Canvas animation featuring floating double helices (DNA structures) and active node meshes that drift, rotate, and interact with the user's cursor.
-*   **Active Pipeline Showcase:** A read-only visual timeline demonstrating how the **Cairn Code** agentic loop discovers, refactors, and verifies codebases using tools and LLMs.
-*   **Projects Catalog:** An interactive portfolio showcasing all public and private repositories under the Cairn organization (e.g. `cairn-code`, `mneme`, `floriography`), complete with category filtering tabs and tags.
-*   **Architecture Visualizer:** A node-graph showing real-time flowing connections between large language models, the core agent runtime, local filesystem tools, and compiler targets.
-*   **Dark Mode Scrollbars & Spacing:** Pixel-perfect dark styling supporting system theme preferences and custom scrollbar tracking.
+The site uses semantic HTML and responsive CSS, with a dark-only charcoal and coral palette, the official Cairn logo, and CSS project illustrations. Space Grotesk is self-hosted under the SIL Open Font License in `public/fonts/`, with a preloaded variable font and system fallbacks. GitHub links use the existing SVG icon sprite. Project categories use native radio controls and CSS filtering. Navigation, keyboard focus, reduced-motion preferences, and mobile layouts work without browser JavaScript.
 
-## 🧬 Tech Stack
+- `index.html`: content, navigation, project links, and category controls.
+- `src/style.css`: layout, illustrations, responsive styles, and filtering.
+- `public/`: static assets, including the supplied Cairn avatar for the hero and social preview, and the rounded icon for navigation and the favicon.
 
-*   **Core:** Vanilla TypeScript (HTML5 Canvas + DOM)
-*   **Build Tool & Bundler:** Vite
-*   **Styling:** Vanilla CSS (Outfit & JetBrains Mono typography, dark glassmorphism)
-*   **Deployment:** GitHub Actions + GitHub Pages
+Legacy TypeScript demonstration modules remain in `src/` but are not imported by the page. No JavaScript is shipped by the production page. The existing Vite/TypeScript build tooling remains in place.
 
----
+## Development
 
-*Built with care by the Cairn Team.*
+With the existing dependencies installed:
+
+```sh
+bun run dev
+bun run build
+bun run preview
+```
+
+The build runs the existing TypeScript checks and generates the static site in `dist/`. GitHub Actions publishes that directory to GitHub Pages on pushes to `main`.
+
+## Verification
+
+Check desktop and mobile widths, keyboard navigation and visible focus, all three project filters, and section links. The public catalog contains three projects: one in AI & agents and two in Art & creative. Verify that `dist/index.html` has no script tags and that the output contains no JavaScript bundles.

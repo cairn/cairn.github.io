@@ -2,283 +2,70 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cairn Software: Building the Future, AI-First</title>
-    <meta name="description" content="Cairn is a boutique software studio dedicated to crafting the next generation of intelligent, agentic, and human-centric applications." />
-    <meta property="og:title" content="Cairn Software: Building the Future, AI-First" />
-    <meta property="og:description" content="We bridge the gap between complex AI capabilities and intuitive, human-centric design, crafting agentic systems and procedural software." />
-    <meta property="og:image" content="https://cairn.github.io/cairn_neon_banner.jpg" />
+    <link rel="icon" type="image/png" href="/cairn-icon.png" />
+    <title>Cairn Software — Tools for a more thoughtful future</title>
+    <meta name="description" content="Cairn is an independent software studio exploring autonomous agents, developer tools, and the creative possibilities of code." />
+    <meta property="og:title" content="Cairn Software — Tools for a more thoughtful future" />
+    <meta property="og:description" content="Independent software. Autonomous agents, developer tools, and creative experiments. Explore the Cairn project collection." />
+    <meta property="og:image" content="https://cairn.github.io/cairn-avatar.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cairn.github.io" />
+    <link rel="preload" href="/fonts/space-grotesk-variable.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <!-- Top Header Navigation -->
-    <header class="system-topbar">
-      <div class="topbar-left">
-        <span>Cairn Software</span>
-      </div>
-      <nav class="topbar-nav">
-        <a href="#cairn-code">[ Cairn-Code ]</a>
-        <a href="#projects">[ Projects ]</a>
-        <a href="#architecture">[ Architecture ]</a>
-        <a href="#philosophy">[ Philosophy ]</a>
-        <a href="https://github.com/cairn" target="_blank">[ GitHub ]</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="#readme" aria-label="Cairn Software home"><img class="brand-mark" src="/cairn-icon.png" alt="" width="40" height="40" />Cairn<span class="brand-caption">Software studio</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#architecture">How we build</a>
+        <a href="#philosophy">Philosophy</a>
+        <a class="nav-external github-link" href="https://github.com/cairn"><svg class="github-icon" width="18" height="18" viewBox="0 0 19 19" aria-hidden="true" focusable="false"><use href="/icons.svg#github-icon"></use></svg>GitHub</a>
       </nav>
     </header>
-
-    <main class="container">
-      <!-- Hero Window -->
-      <section class="rio-window" id="readme">
-        <div class="window-tagbar">
-          <span class="tagbar-title">Overview</span>
+    <main id="main">
+      <section class="hero wrap" id="readme" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="intro">Independent thinking. Open source.</p>
+          <h1 id="hero-title">Small stones.<br />New paths.</h1>
+          <p class="hero-description">We build tools that make complex things feel natural. Autonomous agents, thoughtful interfaces, and experiments at the edges of code.</p>
+          <div class="hero-actions"><a class="button" href="#projects">Explore our projects <span aria-hidden="true">↓</span></a><a class="text-link" href="#philosophy">Meet Cairn</a></div>
         </div>
-        <div class="window-body">
-          <div class="neon-banner-wrapper">
-            <img src="/cairn_neon_banner.jpg" alt="Retro Neon Cyberpunk CAIRN SOFTWARE Banner" width="1920" height="1080" />
-          </div>
+        <div class="cairn-art">
+          <img class="hero-logo" src="/cairn-avatar.png" alt="Cairn: nine coral dots arranged in a pyramid" width="2048" height="2048" fetchpriority="high" />
+          <span class="art-caption">A marker for what comes next.</span>
+        </div>
+        <div class="hero-foot"><span>Built with curiosity. Shared in the open.</span><a href="#cairn-code">Discover Cairn Code <span aria-hidden="true">↓</span></a></div>
+      </section>
 
-          <div class="hero-layout">
-            <div class="hero-text">
-              <h1>Building the Future, AI-First.</h1>
-              <p>
-                We bridge the gap between complex AI capabilities and intuitive, human-centric design. From autonomous agents to procedural art, we shape the algorithms that shape our lives.
-              </p>
-              <p>
-                Our projects combine deep system engineering with thoughtful interface design, delivering robust tools designed for developers, researchers, and creative thinkers.
-              </p>
-            </div>
-            <div class="pixel-logo-wrapper">
-              <img src="/cairn_logo.jpg" alt="A retro pixel art emblem of stacked cairn stones inside a terminal frame" width="1024" height="1024" loading="lazy" />
-            </div>
-          </div>
+      <section class="featured" id="cairn-code" aria-labelledby="code-title">
+        <div class="wrap featured-layout">
+          <div class="feature-copy"><p class="section-note">In the workspace</p><h2 id="code-title">Less handoff.<br />More making.</h2><p>Cairn Code brings the agent into your development workflow. It explores your project, makes focused edits, and checks the result with your own tools.</p><a class="button button-light github-link" href="https://github.com/cairn/cairn"><svg class="github-icon" width="18" height="18" viewBox="0 0 19 19" aria-hidden="true" focusable="false"><use href="/icons.svg#github-icon"></use></svg>Explore Cairn Code</a></div>
+          <div class="workflow"><div class="workflow-title"><span class="status-dot" aria-hidden="true"></span>Cairn Code<span>The agent loop</span></div><ol class="pipeline"><li><span class="step-number">01</span><div><h3>Discover the workspace</h3><p>Find the structure. Understand the context.</p></div></li><li><span class="step-number">02</span><div><h3>Read what matters</h3><p>Gather the source behind the task.</p></div></li><li><span class="step-number">03</span><div><h3>Make a focused change</h3><p>Apply precise edits where they belong.</p></div></li><li><span class="step-number">04</span><div><h3>Verify with real tools</h3><p>Run builds, linters, and tests locally.</p></div></li></ol><p class="workflow-foot">Context → Action → Verification</p></div>
         </div>
       </section>
 
-      <!-- Cairn Code Showcase Window -->
-      <section class="rio-window" id="cairn-code">
-        <div class="window-tagbar">
-          <span class="tagbar-title">Cairn Code</span>
-        </div>
-        <div class="window-body">
-          <h2>Cairn Code: Autopilot Execution Engine</h2>
-          <p>
-            A look at the self-correcting agentic loop that automates software engineering tasks.
-          </p>
-
-          <div class="pipeline-grid">
-            <!-- Step 1 -->
-            <div class="step-card">
-              <div class="step-card-header">
-                <span class="step-number">01</span>
-                <span class="step-tag">DISCOVER</span>
-              </div>
-              <h3>Analyze &amp; Discover</h3>
-              <p>Discovers project structures using fast workspace search primitives.</p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="step-card">
-              <div class="step-card-header">
-                <span class="step-number">02</span>
-                <span class="step-tag">READ</span>
-              </div>
-              <h3>Context Gathering</h3>
-              <p>Inspects file contents with pagination to manage context budget.</p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="step-card">
-              <div class="step-card-header">
-                <span class="step-number">03</span>
-                <span class="step-tag">REFACTOR</span>
-              </div>
-              <h3>Targeted Refactoring</h3>
-              <p>Applies precise, line-scoped diff edits to specific target blocks.</p>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="step-card">
-              <div class="step-card-header">
-                <span class="step-number">04</span>
-                <span class="step-tag">VERIFY</span>
-              </div>
-              <h3>Local Verification</h3>
-              <p>Runs builds, linters, and test suites locally before finishing tasks.</p>
-            </div>
+      <section class="projects-section wrap" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading"><div><p class="section-note">The collection</p><h2 id="projects-title">Different ideas.<br />Same curiosity.</h2></div><p>Practical tools and creative detours.<br />Explore the things we're building.</p></div>
+        <fieldset class="project-filter"><legend class="visually-hidden">Filter projects by category</legend>
+          <input type="radio" name="proj-filter" id="filter-all" class="filter-radio" checked />
+          <input type="radio" name="proj-filter" id="filter-ai" class="filter-radio" />
+          <input type="radio" name="proj-filter" id="filter-creative" class="filter-radio" />
+          <div class="filter-labels"><label for="filter-all">All projects <span>3</span></label><label for="filter-ai">AI &amp; agents <span>1</span></label><label for="filter-creative">Art &amp; creative <span>2</span></label></div>
+          <div class="projects-grid">
+            <article class="project-card code-card" data-category="ai"><div class="project-visual code-visual" aria-hidden="true"><span class="code-bracket">[</span><span class="code-prompt">cairn<span class="cursor">_</span></span><span class="code-bracket">]</span></div><div class="project-body"><div class="project-heading"><h3><a href="https://github.com/cairn/cairn">Cairn Code<svg class="github-icon" width="18" height="18" viewBox="0 0 19 19" aria-hidden="true" focusable="false"><use href="/icons.svg#github-icon"></use></svg></a></h3><span>Developer tools</span></div><p>An autonomous engineering assistant that works directly in your workspace, from first read to verified change.</p><div class="project-tags"><span>CLI</span><span>Agents</span><span>Local-first</span></div></div></article>
+            <article class="project-card flower-card" data-category="creative"><div class="project-visual flower-visual" aria-hidden="true"><div class="flower"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div><span class="flower-caption">The language of flowers</span></div><div class="project-body"><div class="project-heading"><h3><a href="https://github.com/cairn/floriography">Floriography<svg class="github-icon" width="18" height="18" viewBox="0 0 19 19" aria-hidden="true" focusable="false"><use href="/icons.svg#github-icon"></use></svg></a></h3><span>Creative exploration</span></div><p>A flower, its Latin name, its Victorian meaning, and a matching verse from a real English poem.</p><div class="project-tags"><span>Botany</span><span>Poetry</span><a href="https://cairn.github.io/floriography/">Visit the garden ↗</a></div></div></article>
+            <article class="project-card site-card" data-category="creative"><div class="project-visual site-visual" aria-hidden="true"><div class="mini-site"><div class="mini-header">Cairn <span>•••</span></div><div class="mini-content">Small stones.<br />New paths.<img class="mini-logo" src="/cairn-icon.png" alt="" width="55" height="55" loading="lazy" /></div></div></div><div class="project-body"><div class="project-heading"><h3><a href="https://github.com/cairn/cairn.github.io">Our little corner<svg class="github-icon" width="18" height="18" viewBox="0 0 19 19" aria-hidden="true" focusable="false"><use href="/icons.svg#github-icon"></use></svg></a></h3><span>The studio website</span></div><p>A home for our work and the ideas behind it. An intentionally simple site, built with HTML and CSS.</p><div class="project-tags"><span>Web design</span><span>HTML &amp; CSS</span><span>You're here</span></div></div></article>
           </div>
-        </div>
+        </fieldset>
       </section>
 
-      <!-- Projects Portal Window -->
-      <section class="rio-window" id="projects">
-        <div class="window-tagbar">
-          <span class="tagbar-title">Projects</span>
-        </div>
-        <div class="window-body">
-          <h2>Our Repository Ecosystem</h2>
-          <p>Explore open-source software applications built by Cairn Software.</p>
+      <section class="architecture-section wrap" id="architecture" aria-labelledby="architecture-title"><div class="section-heading"><div><p class="section-note">From intent to execution</p><h2 id="architecture-title">Grounded in the workspace.</h2></div><p>Model reasoning meets the files, commands, and checks that make software work.</p></div><ol class="architecture-flow"><li>User prompt</li><li>Agent engine</li><li>Filesystem tools</li><li>Focused edits</li><li>Local verification</li><li>Result</li></ol><div class="architecture-notes"><div><h3>Context before action</h3><p>Explore the project and read the relevant source before deciding what needs to change.</p></div><div><h3>Precision over guesswork</h3><p>Keep edits focused on the task, with clear boundaries around the files being changed.</p></div><div><h3>Evidence before done</h3><p>Use the project's builds and tests to check the work. A plausible answer is only a beginning.</p></div></div></section>
 
-          <!-- Pure CSS Radio Filter Setup -->
-          <div class="projects-filter-wrapper">
-            <fieldset style="border: none; margin: 0; padding: 0;">
-              <legend class="filter-radio">Project Category Filters</legend>
-              <input type="radio" name="proj-filter" id="filter-all" class="filter-radio" checked />
-              <input type="radio" name="proj-filter" id="filter-ai" class="filter-radio" />
-              <input type="radio" name="proj-filter" id="filter-creative" class="filter-radio" />
-
-              <div class="filter-labels">
-                <label for="filter-all" class="filter-btn">[ All Projects (4) ]</label>
-                <label for="filter-ai" class="filter-btn">[ AI &amp; Agents (2) ]</label>
-                <label for="filter-creative" class="filter-btn">[ Art &amp; Creative (2) ]</label>
-              </div>
-
-              <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-category="ai">
-                  <div>
-                    <div class="project-card-header">
-                      <span class="project-name">cairn-code</span>
-                      <span class="project-badge public">PUBLIC</span>
-                    </div>
-                    <p>An autonomous software engineering assistant designed to execute terminal commands, read files, and patch code directly inside your workspace.</p>
-                    <div class="project-tags">
-                      <span class="tag">Rust</span>
-                      <span class="tag">CLI</span>
-                      <span class="tag">LLM Agent</span>
-                      <span class="tag">Local-first</span>
-                    </div>
-                  </div>
-                  <a href="https://github.com/cairn/cairn-code" target="_blank" class="project-link">[ View Repo ]</a>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-category="creative">
-                  <div>
-                    <div class="project-card-header">
-                      <span class="project-name">floriography</span>
-                      <span class="project-badge public">PUBLIC</span>
-                    </div>
-                    <p>Floriography: a flower, its Latin name, its Victorian meaning, and a matching verse from a real English poem.</p>
-                    <div class="project-tags">
-                      <span class="tag">TypeScript</span>
-                      <span class="tag">Canvas</span>
-                      <span class="tag">Botany</span>
-                      <span class="tag">Poetry</span>
-                    </div>
-                  </div>
-                  <a href="https://github.com/cairn/floriography" target="_blank" class="project-link">[ View Repo ]</a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" data-category="creative">
-                  <div>
-                    <div class="project-card-header">
-                      <span class="project-name">cairn.github.io</span>
-                      <span class="project-badge public">PUBLIC</span>
-                    </div>
-                    <p>The official static site portal for Cairn Software, built with retro terminal layouts, flow diagrams, and project catalogs.</p>
-                    <div class="project-tags">
-                      <span class="tag">HTML5</span>
-                      <span class="tag">CSS3</span>
-                      <span class="tag">Retro</span>
-                      <span class="tag">Vite</span>
-                    </div>
-                  </div>
-                  <a href="https://github.com/cairn/cairn.github.io" target="_blank" class="project-link">[ View Repo ]</a>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card" data-category="ai">
-                  <div>
-                    <div class="project-card-header">
-                      <span class="project-name">mneme</span>
-                      <span class="project-badge public">PUBLIC</span>
-                    </div>
-                    <p>A zero-dependency semantic caching library for Python. Replaces complex database setups with an embedded SQLite vector cache and local model inference.</p>
-                    <div class="project-tags">
-                      <span class="tag">Python</span>
-                      <span class="tag">LLM Cache</span>
-                      <span class="tag">SQLite</span>
-                      <span class="tag">Local-first</span>
-                    </div>
-                  </div>
-                  <a href="https://github.com/cairn/mneme" target="_blank" class="project-link">[ View Repo ]</a>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </div>
-      </section>
-
-      <!-- Architecture Section Window -->
-      <section class="rio-window" id="architecture">
-        <div class="window-tagbar">
-          <span class="tagbar-title">Architecture</span>
-        </div>
-        <div class="window-body">
-          <h2>Agent Architecture</h2>
-          <p>Visual pipeline mapping model intent to filesystem tools and test runners.</p>
-
-          <pre class="arch-diagram-box" role="img" aria-label="Process flow diagram showing user prompt routing through agent engine to filesystem tools, disk patch edits, local verifier, and completed result.">
-+--------------------+       +--------------------+       +--------------------+
-|    USER PROMPT     | ----&gt; |   AGENT ENGINE     | ----&gt; |  FILESYSTEM TOOLS  |
-+--------------------+       +--------------------+       +--------------------+
-                                                                    |
-                                                                    v
-+--------------------+       +--------------------+       +--------------------+
-| COMPLETED RESULT   | &lt;---- | LOCAL VERIFIER     | &lt;---- | DISK PATCH EDIT    |
-+--------------------+       +--------------------+       +--------------------+
-          </pre>
-
-          <div class="arch-notes">
-            <div class="arch-note-box">
-              <h3>1. Autonomous Execution</h3>
-              <p>The agent pipeline inspects workspace context, plans multi-step operations, and executes commands locally.</p>
-            </div>
-            <div class="arch-note-box">
-              <h3>2. Targeted File Patches</h3>
-              <p>Applies precise, line-scoped find and replace edits to prevent accidental file corruption or drive-by rewrites.</p>
-            </div>
-            <div class="arch-note-box">
-              <h3>3. Empirical Verification</h3>
-              <p>Evaluates execution success using local build runners, linters, and unit test suites before completing tasks.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Philosophy Window -->
-      <section class="rio-window" id="philosophy">
-        <div class="window-tagbar">
-          <span class="tagbar-title">Philosophy</span>
-        </div>
-        <div class="window-body">
-          <h2>Our Philosophy: AI-First, Not AI-After</h2>
-          <p>
-            We don't view AI as a simple chatbot in a side panel or a feature checklist item. For us, intelligence is the fundamental design primitive. When you build software starting from the model capability, the entire interface shifts. Applications transition from passive request-response cycles to active, collaborative agents that work alongside you.
-          </p>
-          <p>
-            Our projects reflect this duality. <strong>Cairn Code</strong> is an autonomous CLI loop that automates terminal operations, reads files, and edits your code directly with validation checks. On the other hand, <strong>Floriography</strong> combines classic poetry with botany, matching flowers and their Victorian meanings with English verse.
-          </p>
-          <blockquote class="quote-box">
-            "Software shouldn't just wait for instructions; it should understand context, act autonomously with permission, and design solutions that feel natural to humans."
-          </blockquote>
-        </div>
-      </section>
+      <section class="philosophy-section" id="philosophy" aria-labelledby="philosophy-title"><div class="wrap philosophy-layout"><div><p class="section-note">Why Cairn</p><h2 id="philosophy-title">A little direction.<br />A lot of possibility.</h2></div><div class="philosophy-copy"><p>A cairn is a simple thing: a few stones, carefully placed, that help someone find their way. That's how we think about software.</p><p>We start with what intelligence makes possible and build around the people using it. Sometimes that means an agent working alongside you. Sometimes it's a flower and a poem that make you pause.</p><p class="philosophy-end">Useful by intention. Open to discovery.</p><a class="text-link github-link" href="https://github.com/cairn"><svg class="github-icon" width="18" height="18" viewBox="0 0 19 19" aria-hidden="true" focusable="false"><use href="/icons.svg#github-icon"></use></svg>Follow the work on GitHub</a></div></div></section>
     </main>
-
-    <!-- Footer Window -->
-    <footer class="container rio-window footer-window">
-      <div class="footer-nav">
-        <div>
-          <a href="https://github.com/cairn/cairn-code" target="_blank">[ Cairn Code ]</a>
-          <a href="https://cairn.github.io/floriography/" target="_blank">[ Floriography ]</a>
-          <a href="https://github.com/cairn" target="_blank">[ GitHub ]</a>
-        </div>
-        <div>&copy; 2026 Cairn Software. Built with care for the future of agentic coding.</div>
-      </div>
-    </footer>
+    <footer class="site-footer wrap"><a class="brand" href="#readme"><img class="brand-mark" src="/cairn-icon.png" alt="" width="40" height="40" />Cairn<span class="brand-caption">Software studio</span></a><p>© 2026 Cairn Software</p><a href="#readme">Back to the top <span aria-hidden="true">↑</span></a></footer>
   </body>
 </html>

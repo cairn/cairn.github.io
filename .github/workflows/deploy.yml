@@ -28,7 +28,9 @@ jobs:
         run: |
           mkdir -p site
           cp index.html style.css site/
-          cp -r public site/
+          # Flatten public/ into the site root: the HTML references
+          # /cairn-icon.png etc. at the root (Vite used to do this copy).
+          cp -r public/. site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

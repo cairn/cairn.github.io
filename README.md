@@ -26,4 +26,6 @@ The build runs the existing TypeScript checks and generates the static site in `
 
 ## Verification
 
+The logo and back-to-top links use `#home` to return to the page top, including navigation. The skip link uses `#main` and focuses the main content. Section links target `#cairn-code`, `#projects`, `#architecture`, and `#philosophy`.
+
 Check desktop and mobile widths, keyboard navigation and visible focus, all three project filters, and section links. The public catalog contains three projects: one in AI & agents and two in Art & creative. Verify that `dist/index.html` has no script tags and that the output contains no JavaScript bundles.

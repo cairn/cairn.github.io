@@ -14,10 +14,10 @@
     <link rel="preload" href="/fonts/space-grotesk-variable.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body>
+  <body id="home">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header wrap">
-      <a class="brand" href="#readme" aria-label="Cairn Software home"><img class="brand-mark" src="/cairn-icon.png" alt="" width="40" height="40" />Cairn<span class="brand-caption">Software studio</span></a>
+      <a class="brand" href="#home" aria-label="Cairn Software home"><img class="brand-mark" src="/cairn-icon.png" alt="" width="40" height="40" />Cairn<span class="brand-caption">Software studio</span></a>
       <nav aria-label="Main navigation">
         <a href="#projects">Projects</a>
         <a href="#architecture">How we build</a>
@@ -25,8 +25,8 @@
         <a class="nav-external github-link" href="https://github.com/cairn"><svg class="github-icon" width="18" height="18" viewBox="0 0 19 19" aria-hidden="true" focusable="false"><use href="/icons.svg#github-icon"></use></svg>GitHub</a>
       </nav>
     </header>
-    <main id="main">
-      <section class="hero wrap" id="readme" aria-labelledby="hero-title">
+    <main id="main" tabindex="-1">
+      <section class="hero wrap" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="intro">Independent thinking. Independent software.</p>
           <h1 id="hero-title">Small stones.<br />New paths.</h1>
@@ -66,6 +66,6 @@
 
       <section class="philosophy-section" id="philosophy" aria-labelledby="philosophy-title"><div class="wrap philosophy-layout"><div><p class="section-note">Why Cairn</p><h2 id="philosophy-title">A little direction.<br />A lot of possibility.</h2></div><div class="philosophy-copy"><p>A cairn is a simple thing: a few stones, carefully placed, that help someone find their way. That's how we think about software.</p><p>We start with what intelligence makes possible and build around the people using it. Sometimes that means an agent working alongside you. Sometimes it's a flower and a poem that make you pause.</p><p class="philosophy-end">Useful by intention. Open to discovery.</p><a class="text-link github-link" href="https://github.com/cairn"><svg class="github-icon" width="18" height="18" viewBox="0 0 19 19" aria-hidden="true" focusable="false"><use href="/icons.svg#github-icon"></use></svg>Follow the work on GitHub</a></div></div></section>
     </main>
-    <footer class="site-footer wrap"><a class="brand" href="#readme"><img class="brand-mark" src="/cairn-icon.png" alt="" width="40" height="40" />Cairn<span class="brand-caption">Software studio</span></a><p>© 2026 Cairn Software</p><a href="#readme">Back to the top <span aria-hidden="true">↑</span></a></footer>
+    <footer class="site-footer wrap"><a class="brand" href="#home"><img class="brand-mark" src="/cairn-icon.png" alt="" width="40" height="40" />Cairn<span class="brand-caption">Software studio</span></a><p>© 2026 Cairn Software</p><a href="#home">Back to the top <span aria-hidden="true">↑</span></a></footer>
   </body>
 </html>

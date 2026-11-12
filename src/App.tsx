@@ -127,8 +127,8 @@ function AppShell() {
               </p>
             </div>
             <div className="hero-actions">
-              <Button variant="primary" href="#projects">
-                Explore our projects <span aria-hidden="true">↓</span>
+              <Button variant="primary" href="#projects" className="hero-button">
+                Explore our projects <span className="hero-button-arrow" aria-hidden="true">↓</span>
               </Button>
               <a className="text-link" href="#philosophy">
                 Meet Cairn

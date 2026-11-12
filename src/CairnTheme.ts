@@ -45,9 +45,9 @@ export const cairnTheme = defineTheme({
   typography: {
     scale: {base: 16, ratio: 1.35},
     body: {
-      family: 'system-ui',
+      family: 'Space Grotesk',
       fallbacks:
-        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+        'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
     },
     heading: {
       family: 'Space Grotesk',

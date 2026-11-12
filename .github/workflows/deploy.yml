@@ -24,18 +24,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Stage site
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Build site
         run: |
-          mkdir -p site
-          cp index.html style.css site/
-          # Flatten public/ into the site root: the HTML references
-          # /cairn-icon.png etc. at the root (Vite used to do this copy).
-          cp -r public/. site/
+          bun install --frozen-lockfile
+          bun run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './site'
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment

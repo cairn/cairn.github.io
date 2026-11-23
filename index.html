@@ -636,6 +636,9 @@
         // resting stack reads instantly as a 1-3-5 pyramid.
         var yaw = 0;
         var yawVel = BASE_SPEED;
+        // The resting turn keeps the direction of the last real spin: a
+        // flick the other way turns the resting turn around with it.
+        var restSpeed = BASE_SPEED;
         var dragging = false;
         var lastX = 0, lastY = 0, lastT = 0;
         var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -722,7 +725,7 @@
             // flick keeps turning at the capped pace for a while before
             // it settles. The vertical axis is locked, so the spin is
             // all that ever moves.
-            yawVel += (BASE_SPEED - yawVel) * Math.min(1, dt * 0.55);
+            yawVel += (restSpeed - yawVel) * Math.min(1, dt * 0.55);
             yaw += yawVel * dt;
           }
           draw();
@@ -762,6 +765,12 @@
           // loop eases it back down to the resting turn.
           if (yawVel > MAX_SPEED) yawVel = MAX_SPEED;
           if (yawVel < -MAX_SPEED) yawVel = -MAX_SPEED;
+          // A real spin the other way turns the resting turn around, so
+          // the cairn keeps turning the way it was spun. A release with
+          // barely any speed on it leaves the resting direction alone.
+          if (Math.abs(yawVel) > 0.05) {
+            restSpeed = Math.sign(yawVel) * BASE_SPEED;
+          }
         }
         canvas.addEventListener('pointerup', endDrag);
         canvas.addEventListener('pointercancel', endDrag);

@@ -588,9 +588,10 @@
         }
 
         var BASE_SPEED = (Math.PI * 2) / 40; // one revolution every 40 seconds
-        // The fastest the cairn may ever turn, however hard it is flicked:
-        // one revolution every four seconds, a stately ceiling.
-        var MAX_SPEED = Math.PI / 2;
+        // No speed ceiling: a flick keeps whatever speed the hand gave
+        // it, and flicking a cairn that is already spinning adds to its
+        // spin, so it can be wound up faster and faster. The frame loop
+        // eases it back down to the resting turn afterwards.
         // Locked vertically: the cairn only ever turns around its
         // vertical axis, dead level with the camera at all times, as in
         // the TUI. The pitch never moves, so there is no tilt and no
@@ -606,6 +607,7 @@
         var restSpeed = BASE_SPEED;
         var dragging = false;
         var lastX = 0, lastY = 0, lastT = 0;
+        var grabVel = 0, dragVel = 0;
         var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         var W = 0, H = 0, DPR = 1;
@@ -687,9 +689,9 @@
           prevTs = ts;
           if (!dragging) {
             // Glide the spin back down to the resting turn slowly, so a
-            // flick keeps turning at the capped pace for a while before
-            // it settles. The vertical axis is locked, so the spin is
-            // all that ever moves.
+            // hard flick keeps its speed for a while before it settles.
+            // The vertical axis is locked, so the spin is all that ever
+            // moves.
             yawVel += (restSpeed - yawVel) * Math.min(1, dt * 0.55);
             yaw += yawVel * dt;
           }
@@ -701,7 +703,8 @@
           dragging = true;
           lastX = e.clientX; lastY = e.clientY;
           lastT = performance.now();
-          yawVel = 0;
+          grabVel = yawVel;
+          dragVel = 0;
           canvas.setPointerCapture(e.pointerId);
         });
         canvas.addEventListener('pointermove', function (e) {
@@ -711,25 +714,20 @@
           var dx = e.clientX - lastX;
           // Only the sideways component of the drag counts: the
           // vertical axis is locked, so vertical hand movement never
-          // tilts the cairn. Rate-limit the turn itself: a faster hand
-          // past the ceiling simply meets the same calm pace, so the
-          // motion stays smooth and unhurried instead of snapping
-          // against a hard stop.
+          // tilts the cairn. The turn follows the hand exactly, with no
+          // ceiling: drag as fast as you like.
           var dYaw = dx * 0.008;
-          var maxYawStep = MAX_SPEED * dt;
-          if (dYaw > maxYawStep) dYaw = maxYawStep;
-          if (dYaw < -maxYawStep) dYaw = -maxYawStep;
           yaw += dYaw;
-          yawVel = dYaw / dt;
+          dragVel = dYaw / dt;
           lastX = e.clientX; lastY = e.clientY; lastT = now;
         });
         function endDrag() {
           if (!dragging) return;
           dragging = false;
-          // Keep the flick, capped at the same ceiling, then the frame
-          // loop eases it back down to the resting turn.
-          if (yawVel > MAX_SPEED) yawVel = MAX_SPEED;
-          if (yawVel < -MAX_SPEED) yawVel = -MAX_SPEED;
+          // The flick adds to whatever spin the cairn had when it was
+          // grabbed, so repeated flicks build it faster and faster.
+          // The frame loop then eases it back down to the resting turn.
+          yawVel = grabVel + dragVel;
           // A real spin the other way turns the resting turn around, so
           // the cairn keeps turning the way it was spun. A release with
           // barely any speed on it leaves the resting direction alone.

@@ -391,7 +391,7 @@
       <main>
         <section class="hero" aria-labelledby="hero-title">
           <div class="cairn-stage">
-            <canvas id="cairn" role="img" aria-label="Nine spheres made of coral dots, stacked like a cairn, turning very slowly. Drag to spin it."></canvas>
+            <canvas id="cairn-canvas" role="img" aria-label="Nine spheres made of coral dots, stacked like a cairn, turning very slowly. Drag to spin it."></canvas>
             <p class="stage-caption">Drag to spin. It settles back to a slow turn on its own.</p>
           </div>
 
@@ -543,7 +543,7 @@
         });
 
         // The cairn: nine spheres of dots, turning very slowly.
-        var canvas = document.getElementById('cairn');
+        var canvas = document.getElementById('cairn-canvas');
         if (!canvas || !canvas.getContext) return;
         var ctx = canvas.getContext('2d');
 

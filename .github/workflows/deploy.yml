@@ -24,13 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Build site
+      - name: Assemble site
         run: |
-          bun install --frozen-lockfile
-          bun run build
+          mkdir -p dist
+          cp index.html dist/
+          cp -r public dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
